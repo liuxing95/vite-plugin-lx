@@ -3,6 +3,15 @@
 import React from 'react';
 import { render } from 'react-dom'
 import Logo from './logo.svg'
+import 'core-js';
+
+const func = async () => {
+  console.log(12123)
+}
+
+Promise.resolve().finally();
+
+func()
 
 let Greet = () => <h1>
   <Logo />
