@@ -1,0 +1,23 @@
+{
+  "name": "vite-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuxing95/vite-plugin-lx.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liuxing95/vite-plugin-lx/issues"
+  },
+  "homepage": "https://github.com/liuxing95/vite-plugin-lx#readme",
+  "dependencies": {
+    "esbuild": "^0.15.9"
+  }
+}
