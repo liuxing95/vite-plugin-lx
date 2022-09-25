@@ -1,2 +1,2 @@
-import { a } from './module-a';
+import { a } from 'module-a';
 console.log(a);
