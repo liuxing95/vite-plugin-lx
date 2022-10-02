@@ -3,12 +3,14 @@ import { esbuildTransformPlugin } from "./esbuild";
 import { importAnalysisPlugin } from "./importAnalysis";
 import { resolvePlugin } from "./resolve";
 import { cssPliugin } from './css';
+import { assetPlugin } from './assets';
 
 export function resolvePlugins(): Plugin[] {
   return [
     resolvePlugin(),
     esbuildTransformPlugin(),
     importAnalysisPlugin(),
-    cssPliugin()
+    cssPliugin(),
+    assetPlugin()
 ];
 }
