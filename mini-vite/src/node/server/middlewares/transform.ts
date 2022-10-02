@@ -9,8 +9,12 @@ export async function transformRequest(
   url: string,
   serverContext: ServerContext
 ) {
-  const { pluginContainer } = serverContext
+  const {moduleGraph, pluginContainer } = serverContext
   url = cleanUrl(url);
+  let mod = await moduleGraph.getModuleByUrl(url);
+  if (mod && mod.transformResult) {
+    return mod.transformResult;
+  }
   // 简单来说，就是依次调用插件容器的 resolveId、load、transform 方法
   const resolvedResult = await pluginContainer.resolveId(url);
   let transformResult;
@@ -19,11 +23,16 @@ export async function transformRequest(
     if (typeof code === 'object' && code !== null) {
       code = code.code;
     }
+    const { moduleGraph } = serverContext
+    mod = await moduleGraph.ensureEntryFormUrl(url)
     if (code) {
       transformResult = await pluginContainer.transform(
         code as string,
         resolvedResult?.id
       );
+    }
+    if (mod) {
+      mod.transformResult = transformResult;
     }
   }
   return transformResult
