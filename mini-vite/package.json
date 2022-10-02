@@ -6,7 +6,7 @@
     "mini-vite": "bin/mini-vite.js"
   },
   "scripts": {
-    "start": "tsup --watch",
+    "start": "DEBUG=dev & tsup --watch",
     "build": "tsup --minify"
   },
   "keywords": [],
